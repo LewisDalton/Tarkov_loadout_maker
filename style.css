@@ -1,0 +1,60 @@
+@font-face {
+  font-family: "tarkov";
+  src: url("\Jovanny-Lemonad-Bender.otf");
+}
+
+body {
+  font-family: tarkov;
+  background-color: rgb(44, 44, 44);
+  margin: 0;
+  display: flex;
+  height: 100vh;
+
+  flex-direction: column;
+}
+select {
+  font-family: tarkov;
+  margin: 10px;
+  width: 150px;
+  padding: 5px;
+}
+
+#title {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.character {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.character img {
+  height: 100px;
+  width: 150px;
+}
+
+.helmet {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.armour {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.headphones {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.facecover {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}

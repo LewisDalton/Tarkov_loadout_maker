@@ -8,16 +8,14 @@
   </head>
   <body>
     <h1 id="title">Tarkov Loadout Creator</h1>
-    <div class="character">
+    <div id="character">
       <div class="helmet">
-        <img
-          src="data:image/jpeg;base64,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"
-          alt=""
-        />
-        <select>
-          <option>Helmet 1</option>
-          <option>Helmet 2</option>
-          <option>Helmet 3</option>
+        <img id="helmet_image" src="images/empty_helmet.png" alt="" />
+        <select id="helmet_select">
+          <option value="images/empty_helmet.png">None</option>
+          <option value="images/dick.webp">Helmet 1</option>
+          <option value="images/ulach.webp">Helmet 2</option>
+          <option value="images/brown.webp">Helmet 3</option>
         </select>
       </div>
       <div class="facecover">
@@ -54,5 +52,6 @@
         </select>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

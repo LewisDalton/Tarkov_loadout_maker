@@ -25,13 +25,13 @@ select {
   margin-bottom: 10px;
 }
 
-.character {
+#character {
   margin-top: 10px;
   text-align: center;
 }
 
-.character img {
-  height: 100px;
+#character img {
+  height: 130px;
   width: 150px;
 }
 

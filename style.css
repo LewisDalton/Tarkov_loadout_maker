@@ -1,6 +1,6 @@
 @font-face {
   font-family: "tarkov";
-  src: url("\Jovanny-Lemonad-Bender.otf");
+  src: url("assets/Jovanny-Lemonad-Bender.otf");
 }
 
 body {
@@ -33,6 +33,13 @@ select {
 #character img {
   height: 130px;
   width: 150px;
+}
+
+#layer1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .helmet {

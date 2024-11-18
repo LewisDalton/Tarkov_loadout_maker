@@ -17,7 +17,7 @@ select {
   font-family: tarkov;
   margin: 10px;
   margin-top: 0;
-  width: 150px;
+  width: 135px;
 }
 
 #title {
@@ -38,13 +38,18 @@ select {
   padding-left: 55px;
 }
 
-#character img {
+.square_img {
   position: relative;
   z-index: 1;
-  height: 130px;
-  width: 150px;
+  height: 135px;
+  width: 135px;
 }
 
+.square_container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
 #layer1 {
   display: flex;
   flex-direction: row;
@@ -52,26 +57,9 @@ select {
   justify-content: center;
 }
 
-.helmet {
-  align-items: center;
+#layer2 {
   display: flex;
-  flex-direction: column;
-}
-
-.armour {
+  flex-direction: row;
   align-items: center;
-  display: flex;
-  flex-direction: column;
-}
-
-.headphones {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
-
-.facecover {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+  justify-content: center;
 }

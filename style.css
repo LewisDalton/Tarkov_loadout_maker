@@ -10,20 +10,24 @@ body {
   display: flex;
   height: 100vh;
   align-items: center;
-
   flex-direction: column;
 }
+
 select {
   font-family: tarkov;
   margin: 10px;
   margin-top: 0;
   width: 135px;
+  background-color: rgb(34, 34, 34);
+  color: white;
 }
 
 #title {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
+  color: white;
+  text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
 }
 
 #character {
@@ -35,7 +39,6 @@ select {
   background-position: center;
   width: 650px;
   height: 750px;
-  padding-left: 55px;
 }
 
 .square_img {
@@ -43,6 +46,15 @@ select {
   z-index: 1;
   height: 135px;
   width: 135px;
+  opacity: 0.7;
+}
+
+#armband .square_img {
+  height: 65px !important;
+}
+
+#armband {
+  align-self: flex-start;
 }
 
 .square_container {

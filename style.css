@@ -65,14 +65,14 @@ select:hover {
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-right: 25px;
+  margin-right: 32px;
 }
 
 .layer {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: 5.8rem;
+  margin-left: 7rem;
 }
 
 .rec_container {
@@ -80,7 +80,6 @@ select:hover {
   align-items: flex-start;
   flex-direction: column;
   margin-right: 25px;
-  margin-left: 5px;
 }
 
 .rec_img {

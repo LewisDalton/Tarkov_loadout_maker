@@ -7,9 +7,44 @@ function selectClicked() {
     select.addEventListener("click", () => {
       const parentId = select.parentNode.id;
       console.log(parentId);
+
+      let swapQuery = `{
+        items(categoryNames: ${parentId}) {
+            name
+            gridImageLink
+        }
+    }`;
+
+      fetchItems(parentId, swapQuery);
     });
   });
 }
+
+function querySelect(parentId) {
+  if ((parentId = "helmet")) {
+    let swapQuery = `{
+    items(categoryNames: ${parentId}) {
+        name
+        gridImageLink
+    }
+  }`;
+  }
+}
+
+function fetchItems(parentId, swapQuery) {
+  fetch("https://api.tarkov.dev/graphql", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({ query: swapQuery }),
+  })
+    .then((r) => r.json())
+    .then((data) => console.log("data returned:", data));
+}
+
+selectClicked();
 
 /*
 document
@@ -20,30 +55,3 @@ document
     img_element.src = selected_value;
   });
 */
-
-function fetchItems(parentId) {
-  fetch("https://api.tarkov.dev/graphql", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    swapQuery(),
-  })
-    .then((r) => r.json())
-    .then((data) => console.log("data returned:", data));
-}
-
-function swapQuery(parentId) {
-  body: JSON.stringify({
-      query: `{
-        items(categoryNames: ${parentId}) {
-        name
-        shortName
-        gridImageLink
-    }
-}`,
-    })
-}
-
-selectClicked();

@@ -1,50 +1,54 @@
 // Listen for when a select element is clicked and gets parent id
 // e.g helmet
-function selectClicked() {
+function select_clicked() {
   const selects = document.querySelectorAll("SELECT");
 
   selects.forEach((select) => {
     select.addEventListener("click", () => {
-      const parentId = select.parentNode.id;
+      let parentId = select.parentNode.id;
       console.log(parentId);
-
-      let swapQuery = `{
-        items(categoryNames: ${parentId}) {
-            name
-            gridImageLink
-        }
-    }`;
-
-      fetchItems(parentId, swapQuery);
+      dropdown_data(parentId);
     });
   });
 }
 
-function querySelect(parentId) {
-  if ((parentId = "helmet")) {
-    let swapQuery = `{
-    items(categoryNames: ${parentId}) {
-        name
-        gridImageLink
-    }
-  }`;
-  }
-}
-
-function fetchItems(parentId, swapQuery) {
-  fetch("https://api.tarkov.dev/graphql", {
+// Query for all wearable items
+async function fetch_items() {
+  const response = await fetch("https://api.tarkov.dev/graphql", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
-    body: JSON.stringify({ query: swapQuery }),
-  })
-    .then((r) => r.json())
-    .then((data) => console.log("data returned:", data));
+    body: JSON.stringify({
+      query: `{
+        items(type: wearable) {
+            id
+            name
+            gridImageLink
+            category {
+              id
+              name
+            }
+        }
+      }`,
+    }),
+  });
+  const data = await response.json();
+  console.log(data);
+  itemsCache = data.data.items; // store in the global variable
+  console.log("Items cached:", items_cache);
 }
 
-selectClicked();
+// categorize items by selected slot
+function dropdown_data(parentId) {
+  console.log(itemsCache);
+  for i in Range(itemsCache)
+  console.log("dropdown", parentId);
+}
+
+select_clicked();
+fetch_items();
 
 /*
 document

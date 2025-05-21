@@ -6,7 +6,11 @@ function select_clicked() {
   selects.forEach((select) => {
     select.addEventListener("click", () => {
       let parentId = select.parentNode.id;
-      console.log(parentId);
+
+      img = select.parentNode.querySelector(".item_image");
+
+      img.src = select.value;
+
       dropdown_data(parentId);
     });
   });
@@ -37,25 +41,35 @@ async function fetch_items() {
   const data = await response.json();
   console.log(data);
   itemsCache = data.data.items; // store in the global variable
-  console.log("Items cached:", items_cache);
+  console.log("Items cached:", itemsCache);
 }
 
 // categorize items by selected slot
 function dropdown_data(parentId) {
-  console.log(itemsCache);
-  for i in Range(itemsCache)
-  console.log("dropdown", parentId);
+  for (i in itemsCache) {
+    if (parentId == itemsCache[i].category.name) {
+      let item = itemsCache[i];
+      let select = document.getElementById(parentId).querySelector("select");
+
+      // create option object
+      let option = document.createElement("option");
+      option.value = item.gridImageLink;
+      option.text = item.name;
+
+      // append option to the select field
+      select.appendChild(option);
+    }
+  }
 }
 
 select_clicked();
 fetch_items();
 
 /*
-document
-  .getElementById("helmet_select")
-  .addEventListener("change", function () {
-    const selected_value = this.value;
-    const img_element = document.getElementById("helmet_image");
-    img_element.src = selected_value;
-  });
+document.querySelectorAll("option").addEventListener("change", function () {
+  const selected_value = this.value;
+  console.log(this);
+  const img_element = document.getElementById("helmet_image");
+  img_element.src = selected_value;
+});
 */

@@ -46,10 +46,21 @@ async function fetch_items() {
 
 // categorize items by selected slot
 function dropdown_data(parentId) {
+  let select = document.getElementById(parentId).querySelector("select");
+
+  const existingValues = new Set(
+    Array.from(select.options).map(option => option.value)
+  );
+
+
   for (i in itemsCache) {
-    if (parentId == itemsCache[i].category.name) {
-      let item = itemsCache[i];
-      let select = document.getElementById(parentId).querySelector("select");
+    if (parentId === itemsCache[i].category.name) {
+      const item = itemsCache[i];
+
+      // Check if current iteration is in the existingValues set
+      if (existingValues.has(item.gridImageLink)) {
+        continue;
+      }
 
       // create option object
       let option = document.createElement("option");
